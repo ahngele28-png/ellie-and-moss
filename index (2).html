@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellie & Moss | Handcrafted Jewelry</title>
+<meta name="description" content="Handcrafted wire and metal jewelry from Ellie & Moss. Quiet. Strong. Beautiful.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBE9CD;
+    --mist: #EAD4C8;
+    --teal: #2E7A87;
+    --teal-deep: #1F5860;
+    --rust: #84361A;
+    --rust-soft: #A85434;
+    --black: #241C16;
+    --water: #54B3C7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    background: rgba(243, 237, 227, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(43, 38, 33, 0.08);
+    transition: padding 0.3s ease;
+  }
+
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+
+  .nav-mark { font-family: 'Fraunces', serif; font-size: 1.25rem; letter-spacing: 0.02em; }
+
+  .nav-links { display: flex; gap: 32px; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .nav-links a { opacity: 0.75; transition: opacity 0.25s ease; }
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-shop {
+    border: 1px solid var(--black);
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .nav-shop:hover { background: var(--black); color: var(--cream); }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 140px 32px 80px;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(180, 101, 42, 0.14), transparent 55%),
+      radial-gradient(ellipse at 80% 85%, rgba(74, 89, 67, 0.16), transparent 55%),
+      var(--cream);
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(115deg, transparent, transparent 58px, rgba(43,38,33,0.02) 59px, transparent 60px);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: riseIn 1s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 1.02;
+    max-width: 900px;
+    opacity: 0;
+    animation: riseIn 1.1s ease forwards 0.4s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero p {
+    max-width: 480px;
+    margin: 28px auto 0;
+    font-size: 1.05rem;
+    opacity: 0;
+    animation: riseIn 1s ease forwards 0.7s;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 44px;
+    opacity: 0;
+    animation: riseIn 1s ease forwards 0.95s;
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.28s ease;
+    cursor: pointer;
+    border: 1px solid var(--black);
+  }
+
+  .btn-solid { background: var(--black); color: var(--cream); }
+  .btn-solid:hover { background: var(--rust); border-color: var(--rust); }
+
+  .btn-outline { background: transparent; color: var(--black); }
+  .btn-outline:hover { background: rgba(43,38,33,0.06); }
+
+  .hero-scroll {
+    margin-top: 72px;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 34px;
+    background: var(--black);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.5; }
+    50% { transform: scaleY(0.4); transform-origin: top; opacity: 0.9; }
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section { padding: 120px 0; }
+
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+
+  .section-head p { margin-top: 18px; opacity: 0.75; font-size: 1rem; }
+
+  /* ---------- QUIZ ---------- */
+  .quiz {
+    background: var(--teal-deep);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quiz::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(180,101,42,0.18), transparent 70%);
+  }
+
+  .quiz .section-eyebrow { color: var(--rust-soft); }
+  .quiz .section-head p { opacity: 0.65; }
+
+  .quiz-box {
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(253, 252, 250, 0.04);
+    border: 1px solid rgba(253, 252, 250, 0.15);
+    border-radius: 6px;
+    padding: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 640px) {
+    .quiz-box { padding: 32px 24px; }
+  }
+
+  .quiz-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+
+  .quiz-progress span {
+    height: 2px;
+    flex: 1;
+    background: rgba(253,252,250,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .quiz-progress span i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--rust-soft);
+    transition: width 0.4s ease;
+  }
+
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; animation: fadeStep 0.5s ease; }
+
+  @keyframes fadeStep {
+    from { opacity: 0; transform: translateX(12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .quiz-question { font-family: 'Fraunces', serif; font-size: 1.4rem; margin-bottom: 28px; }
+
+  .quiz-options { display: grid; gap: 12px; }
+
+  .quiz-option {
+    text-align: left;
+    padding: 16px 20px;
+    border: 1px solid rgba(253,252,250,0.22);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .quiz-option:hover { border-color: var(--rust-soft); background: rgba(253,252,250,0.06); }
+
+  .quiz-result { text-align: center; }
+
+  .quiz-result-label { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust-soft); margin-bottom: 14px; }
+
+  .quiz-result h3 { font-size: 2.1rem; margin-bottom: 14px; }
+
+  .quiz-result p { opacity: 0.7; max-width: 420px; margin: 0 auto 30px; }
+
+  .quiz-restart { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-top: 22px; cursor: pointer; display: inline-block; }
+  .quiz-restart:hover { opacity: 0.9; }
+
+  /* ---------- COLLECTIONS ---------- */
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--black);
+  }
+
+  @media (max-width: 800px) {
+    .collections-grid { grid-template-columns: 1fr; }
+  }
+
+  .collection-card {
+    background: var(--cream);
+    padding: 64px 48px;
+    position: relative;
+    transition: background 0.35s ease;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+  }
+
+  .collection-card:focus-visible { outline: 2px solid var(--rust); outline-offset: -4px; }
+
+  .collection-card:hover { background: var(--mist); }
+
+  .collection-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--rust);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .collection-card h3 { font-size: 1.7rem; margin-bottom: 14px; }
+
+  .collection-card p { opacity: 0.72; font-size: 0.95rem; max-width: 340px; }
+
+  .collection-swatch {
+    width: 44px;
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 26px;
+  }
+
+  /* ---------- SHOP STRIP ---------- */
+  .shop { background: var(--mist); }
+
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+  }
+
+  .shop-card {
+    display: block;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .shop-card:hover { transform: translateY(-6px); box-shadow: 0 18px 34px rgba(43,38,33,0.12); }
+
+  .shop-card-img { aspect-ratio: 1; overflow: hidden; background: var(--mist); }
+  .shop-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .shop-card:hover .shop-card-img img { transform: scale(1.06); }
+
+  .shop-card-body { padding: 18px 20px 22px; }
+
+  .shop-card-body h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; margin-bottom: 6px; }
+
+  .shop-card-price { color: var(--rust); font-size: 0.9rem; letter-spacing: 0.02em; }
+
+  .shop-more { text-align: center; margin-top: 56px; }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    background: var(--mist);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .about-img {
+    aspect-ratio: 4/5;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--teal);
+  }
+
+  .about-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .about-text .section-eyebrow { text-align: left; }
+
+  .about-text h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); margin-bottom: 22px; }
+
+  .about-text p { opacity: 0.78; margin-bottom: 18px; max-width: 480px; }
+
+  .about-tag {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--teal);
+    font-size: 1.15rem;
+    margin-top: 26px;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact {
+    background: var(--black);
+    color: var(--cream);
+    text-align: center;
+  }
+
+  .contact h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+
+  .contact p { opacity: 0.6; max-width: 460px; margin: 0 auto 36px; }
+
+  .contact .btn-outline { border-color: var(--cream); color: var(--cream); }
+  .contact .btn-outline:hover { background: rgba(253,252,250,0.08); }
+
+  footer {
+    background: var(--black);
+    color: rgba(253,252,250,0.55);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.82rem;
+    border-top: 1px solid rgba(253,252,250,0.1);
+  }
+
+  footer a { opacity: 0.85; }
+  footer a:hover { opacity: 1; text-decoration: underline; }
+
+  .footer-links { display: flex; gap: 22px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="nav-mark">Ellie &amp; Moss</a>
+    <div class="nav-links">
+      <a href="#quiz">Find Your Mood</a>
+      <a href="#collections">Collections</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="https://payhip.com/EllieandMoss" target="_blank" rel="noopener" class="nav-shop">Shop</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-texture"></div>
+  <span class="hero-eyebrow">Handcrafted in Copper, Brass &amp; Wire</span>
+  <h1>Quiet. Strong.<br><em>Beautiful.</em></h1>
+  <p>One of a kind jewelry shaped by hand, inspired by moss-draped oaks and the slow light of a Savannah morning.</p>
+  <div class="hero-actions">
+    <a href="#quiz" class="btn btn-solid">Find Your Mood</a>
+    <a href="#shop" class="btn btn-outline">Shop the Collection</a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<section class="quiz" id="quiz">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">A Little Discovery</span>
+      <h2>Find Your Ellie &amp; Moss Mood</h2>
+      <p>Three questions to point you toward the collection that fits how you actually want to feel wearing it.</p>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-progress">
+        <span><i id="prog1"></i></span>
+        <span><i id="prog2"></i></span>
+        <span><i id="prog3"></i></span>
+      </div>
+
+      <div class="quiz-step active" data-step="1">
+        <p class="quiz-question">When you get dressed, what are you usually reaching for?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" data-val="quiet">Something simple that still feels considered</button>
+          <button class="quiz-option" data-val="clear">Something light, almost like it's not there</button>
+          <button class="quiz-option" data-val="moss">Something with a bit of texture and history</button>
+          <button class="quiz-option" data-val="dark">Something with a little edge to it</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <p class="quiz-question">Pick the light that feels most like you.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" data-val="quiet">Early morning, still and grey</button>
+          <button class="quiz-option" data-val="clear">Midday sun on water</button>
+          <button class="quiz-option" data-val="moss">Late afternoon through live oak canopy</button>
+          <button class="quiz-option" data-val="dark">Candlelight after the sun's gone down</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <p class="quiz-question">What do you want people to notice first?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" data-val="quiet">The shape, not the shine</button>
+          <button class="quiz-option" data-val="clear">How it catches the light</button>
+          <button class="quiz-option" data-val="moss">That it looks like it was found, not made</button>
+          <button class="quiz-option" data-val="dark">That it doesn't look like anyone else's</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="result">
+        <div class="quiz-result">
+          <span class="quiz-result-label">Your Mood Is</span>
+          <h3 id="resultTitle">Quiet Form</h3>
+          <p id="resultDesc">Hand formed copper, shaped down to the essentials. You like a piece that earns its place through line and form alone.</p>
+          <a href="#collections" class="btn btn-outline" style="border-color: var(--cream); color: var(--cream);" id="resultLink">See the Collection</a>
+          <div>
+            <span class="quiz-restart" onclick="restartQuiz()">Start Over</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Four Collections</span>
+      <h2>Each One Its Own Small World</h2>
+      <p>Every collection starts from a different material and a different mood. None of them are trying to be the others.</p>
+    </div>
+  </div>
+
+  <div class="collections-grid">
+    <button class="collection-card" onclick="filterCollection('quiet')">
+      <span class="collection-num">01</span>
+      <h3>Quiet Form</h3>
+      <p>Hand formed copper, shaped down to its most essential lines. Sculptural, minimal, and made to be worn every day without a second thought.</p>
+      <div class="collection-swatch" style="background: var(--rust);"></div>
+    </button>
+    <button class="collection-card" onclick="filterCollection('clear')">
+      <span class="collection-num">02</span>
+      <h3>Clear Water</h3>
+      <p>Translucent and light, drawn from the way sun moves through shallow water. The pieces that feel like they're barely there until they catch the light.</p>
+      <div class="collection-swatch" style="background: var(--water);"></div>
+    </button>
+    <button class="collection-card" onclick="filterCollection('moss')">
+      <span class="collection-num">03</span>
+      <h3>Moss &amp; Copper</h3>
+      <p>Earthy and botanical, built from the textures of a Savannah backyard. Weathered metal, warm tones, a little bit of wild in the shape.</p>
+      <div class="collection-swatch" style="background: var(--teal);"></div>
+    </button>
+    <button class="collection-card" onclick="filterCollection('dark')">
+      <span class="collection-num">04</span>
+      <h3>After Dark</h3>
+      <p>Deeper metals with a moody, dramatic edge. For the pieces you reach for when you want something with a little more weight to it.</p>
+      <div class="collection-swatch" style="background: var(--black);"></div>
+    </button>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow" id="shopEyebrow">Available Now</span>
+      <h2 id="shopHeading">Shop the Pieces</h2>
+      <p id="shopSub">Every piece is made in small batches and listed as it's finished. What you see is what's actually in stock.</p>
+      <span class="quiz-restart" id="clearFilter" onclick="filterCollection('all')" style="display: none; color: var(--rust); opacity: 0.85;">Show All Pieces</span>
+    </div>
+
+    <div class="shop-grid" id="shopGrid">
+
+      <a class="shop-card" data-collection="quiet" href="https://payhip.com/b/lchpX" target="_blank" rel="noopener">
+        <div class="shop-card-img"><img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1jekdqjnis1cdck1g8pulhqhpm.jpg" alt="Sunlit Curve Brass Earrings" loading="lazy"></div>
+        <div class="shop-card-body">
+          <h4>Sunlit Curve Brass Earrings</h4>
+          <div class="shop-card-price">$20.00</div>
+        </div>
+      </a>
+
+      <a class="shop-card" data-collection="moss" href="https://payhip.com/b/PAYtj" target="_blank" rel="noopener">
+        <div class="shop-card-img"><img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1j9qilhv217ort85108lp9t1l0hl.jpg" alt="Copper Bloom" loading="lazy"></div>
+        <div class="shop-card-body">
+          <h4>Copper Bloom</h4>
+          <div class="shop-card-price">$15.00</div>
+        </div>
+      </a>
+
+      <a class="shop-card" data-collection="moss" href="https://payhip.com/b/0uXhz" target="_blank" rel="noopener">
+        <div class="shop-card-img"><img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1j9qdlsknvsm1jdv15v511441464m.jpg" alt="Silver Spiral Bloom" loading="lazy"></div>
+        <div class="shop-card-body">
+          <h4>Silver Spiral Bloom</h4>
+          <div class="shop-card-price">$20.00</div>
+        </div>
+      </a>
+
+      <a class="shop-card" data-collection="quiet" href="https://payhip.com/b/0WpvF" target="_blank" rel="noopener">
+        <div class="shop-card-img"><img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1j57tikmv1dbfa7419is1lcef53n.jpg" alt="Minimalist Hammered Brass Arc Earrings" loading="lazy"></div>
+        <div class="shop-card-body">
+          <h4>Minimalist Hammered Brass Arc Earrings</h4>
+          <div class="shop-card-price">$15.00</div>
+        </div>
+      </a>
+
+      <a class="shop-card" data-collection="clear" href="https://payhip.com/b/7mPy5" target="_blank" rel="noopener">
+        <div class="shop-card-img"><img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1j57jguj245brpv1tci14tr11ish.jpg" alt="Handmade Copper & Resin Teardrop Earrings" loading="lazy"></div>
+        <div class="shop-card-body">
+          <h4>Handmade Copper &amp; Resin Teardrop Earrings</h4>
+          <div class="shop-card-price">$20.00</div>
+        </div>
+      </a>
+
+    </div>
+
+    <p id="shopEmpty" style="display: none; text-align: center; opacity: 0.65; margin-top: 12px;">No pieces listed in this collection yet. Check back soon, or view everything available now.</p>
+
+    <div class="shop-more">
+      <a href="https://payhip.com/EllieandMoss" target="_blank" rel="noopener" class="btn btn-solid">View Full Shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://payhip.com/cdn-cgi/image/format=auto,width=750/https://pe56d.s3.amazonaws.com/o_1je2c3fbi1jc36l1jncnum2jbc.png" alt="Ellie & Moss maker portrait">
+      </div>
+      <div class="about-text">
+        <span class="section-eyebrow">About Me</span>
+        <h2>Made by Hand, Raised in the South</h2>
+        <p>I'm a jewelry maker with a deep love for shaping wire and metal into something you'd actually want to wear every day. Growing up in the South put creativity at the center of everything I do, and it still shows up in every piece.</p>
+        <p>Nothing here comes off a production line. Every earring and pendant is bent, hammered, or wrapped by hand, which means no two pieces turn out exactly the same. I like it that way.</p>
+        <p class="about-tag">Jewelry should tell a story, not just complete an outfit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Say Hello</h2>
+    <p>Questions about a piece, a custom order, or just want to talk copper and moss? Reach out through the shop or follow along on Instagram.</p>
+    <div class="hero-actions" style="justify-content: center;">
+      <a href="https://payhip.com/EllieandMoss" target="_blank" rel="noopener" class="btn btn-outline">Contact via Shop</a>
+      <a href="https://instagram.com/ellie_and_moss" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Ellie &amp; Moss &middot; Handcrafted Jewelry</div>
+    <div class="footer-links">
+      <a href="https://payhip.com/EllieandMoss" target="_blank" rel="noopener">Shop</a>
+      <a href="https://instagram.com/ellie_and_moss" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Back to Top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const collectionInfo = {
+    quiet: { name: "Quiet Form", eyebrow: "Collection 01", sub: "Hand formed copper, shaped down to its most essential lines." },
+    clear: { name: "Clear Water", eyebrow: "Collection 02", sub: "Translucent and light, drawn from the way sun moves through shallow water." },
+    moss: { name: "Moss & Copper", eyebrow: "Collection 03", sub: "Earthy and botanical, built from the textures of a Savannah backyard." },
+    dark: { name: "After Dark", eyebrow: "Collection 04", sub: "Deeper metals with a moody, dramatic edge." }
+  };
+
+  function filterCollection(key) {
+    const cards = document.querySelectorAll('.shop-card');
+    const heading = document.getElementById('shopHeading');
+    const eyebrow = document.getElementById('shopEyebrow');
+    const sub = document.getElementById('shopSub');
+    const clearBtn = document.getElementById('clearFilter');
+    const emptyMsg = document.getElementById('shopEmpty');
+
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const match = key === 'all' || card.dataset.collection === key;
+      card.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    if (key === 'all') {
+      heading.textContent = 'Shop the Pieces';
+      eyebrow.textContent = 'Available Now';
+      sub.textContent = "Every piece is made in small batches and listed as it's finished. What you see is what's actually in stock.";
+      clearBtn.style.display = 'none';
+    } else {
+      const info = collectionInfo[key];
+      heading.textContent = info.name;
+      eyebrow.textContent = info.eyebrow;
+      sub.textContent = info.sub;
+      clearBtn.style.display = 'inline-block';
+    }
+
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const results = {
+    quiet: {
+      title: "Quiet Form",
+      desc: "Hand formed copper, shaped down to the essentials. You like a piece that earns its place through line and form alone.",
+      color: "var(--rust)"
+    },
+    clear: {
+      title: "Clear Water",
+      desc: "Light and translucent, drawn to how sun moves through shallow water. You want jewelry that feels barely there until it catches the light.",
+      color: "var(--water)"
+    },
+    moss: {
+      title: "Moss & Copper",
+      desc: "Earthy, botanical, a little bit wild. You're drawn to texture, warmth, and the feeling of something found rather than made.",
+      color: "var(--teal)"
+    },
+    dark: {
+      title: "After Dark",
+      desc: "Deeper metals, more weight, a little drama. You want a piece that doesn't look like anyone else's.",
+      color: "var(--black)"
+    }
+  };
+
+  let answers = [];
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  function updateProgress() {
+    for (let i = 1; i <= totalSteps; i++) {
+      const bar = document.getElementById('prog' + i);
+      bar.style.width = i <= currentStep - 1 ? '100%' : (i === currentStep ? '50%' : '0%');
+    }
+  }
+
+  document.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      answers.push(btn.dataset.val);
+      const stepEl = document.querySelector('.quiz-step[data-step="' + currentStep + '"]');
+      stepEl.classList.remove('active');
+
+      if (currentStep < totalSteps) {
+        currentStep++;
+        document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.add('active');
+        updateProgress();
+      } else {
+        showResult();
+      }
+    });
+  });
+
+  function showResult() {
+    for (let i = 1; i <= totalSteps; i++) {
+      document.getElementById('prog' + i).style.width = '100%';
+    }
+
+    const counts = {};
+    answers.forEach(a => counts[a] = (counts[a] || 0) + 1);
+    let winner = answers[0];
+    let max = 0;
+    for (const key in counts) {
+      if (counts[key] > max) { max = counts[key]; winner = key; }
+    }
+
+    const r = results[winner];
+    document.getElementById('resultTitle').textContent = r.title;
+    document.getElementById('resultDesc').textContent = r.desc;
+
+    document.querySelector('.quiz-step[data-step="result"]').classList.add('active');
+  }
+
+  function restartQuiz() {
+    document.querySelector('.quiz-step[data-step="result"]').classList.remove('active');
+    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.remove('active');
+    currentStep = 1;
+    answers = [];
+    document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
+    updateProgress();
+  }
+
+  updateProgress();
+</script>
+
+</body>
+</html>
